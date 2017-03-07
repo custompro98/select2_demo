@@ -1,0 +1,8 @@
+<%= select_tag 'select2_name', [], data: {target: 'select2', placeholder: 'Search for a user'} %>
+
+<% content_for :javascript do %>
+  <script type='text/javascript'>
+    var users = new Select2Demo.Users({getUsers: '<%= get_users_search_path %>'});
+    users.init();
+  </script>
+<% end %>
