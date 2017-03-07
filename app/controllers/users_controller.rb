@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     render json: users_interactor.where(params[:q]), status: :ok
   end
 
+  def post_search
+    render json: users_interactor.where(params[:q]), status: :ok
+  end
+
   private
 
   def users_interactor

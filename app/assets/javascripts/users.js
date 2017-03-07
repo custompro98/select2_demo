@@ -1,7 +1,7 @@
 var Select2Demo = Select2Demo || {};
 
 Select2Demo.Users = function(options) {
-  var getUsers = options.getUsers;
+  var postUsers = options.getUsers;
 
   this.init = function() {
     bindSelect2();
@@ -10,10 +10,16 @@ Select2Demo.Users = function(options) {
   var bindSelect2 = function() {
     var select2Options = {
       ajax: {
-        dataType: 'json',
-        url: getUsers,
-        data: function(params) {
-          return {q: params.term}
+        transport: function(params, success, failure) {
+          $.ajax({
+            dataType: 'json',
+            url: postUsers,
+            type: 'POST',
+            data: function(params) {
+              return {q: params.term}
+            },
+            success: success
+          });
         },
         processResults: function(data, params) {
           return {
