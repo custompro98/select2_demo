@@ -13,11 +13,17 @@ Select2Demo.Users = function(options) {
         dataType: 'json',
         url: getUsers,
         data: function(params) {
-          return {q: params.term}
+          return {
+            q: params.term,
+            page: params.page
+          };
         },
         processResults: function(data, params) {
+          params.page = params.page || 1;
+
           return {
             results: data.results,
+            pagination: { more: data.more }
           };
         },
         cache: true

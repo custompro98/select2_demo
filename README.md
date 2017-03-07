@@ -1,1 +1,1 @@
-select2 as a get
+select2 as a get with infinite scroll

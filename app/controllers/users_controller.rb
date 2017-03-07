@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    render json: users_interactor.where(params[:q]), status: :ok
+    render json: users_interactor.where(params[:q], params[:page].to_i), status: :ok
   end
 
   private
