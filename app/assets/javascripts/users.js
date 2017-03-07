@@ -19,7 +19,7 @@ Select2Demo.Users = function(options) {
           return {
             results: data.results,
           };
-        }
+        },
       },
       allowClear: true,
       placeholder: $(this).data('placeholder'),
